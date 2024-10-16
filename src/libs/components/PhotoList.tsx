@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { splitToSmallChunks } from "../utils/helpers";
 import { PhotoType } from "../utils/types";
 
@@ -17,16 +18,13 @@ function PhotoList(props: PhotoListProps) {
         <div className="grid gap-4" key={index}>
           {collumn.map((image) => (
             <div key={image.id}>
-              <a
-                href={image.links.html}
-                target="_blank"
-                rel="noopener noreferrer">
+              <Link to={`/photos/${image.id}`} className="text-blue-500">
                 <img
                   className="h-auto max-w-full rounded-lg"
                   src={image.urls.regular}
                   alt={image.alt_description}
                 />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

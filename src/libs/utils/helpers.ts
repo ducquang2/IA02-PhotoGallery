@@ -3,7 +3,7 @@ import { PhotoType } from "./types";
 export { splitToSmallChunks };
 
 /**
- * Splits an array into N chunks.
+ * @description Splits an array into N chunks.
  *
  * @param array - The array to be split.
  * @param n - The number of chunks to split the array into.
