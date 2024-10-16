@@ -24,7 +24,7 @@ function SearchBar({ value, onSubmit, onChange, ...rest }: SearchBarProps) {
           type="search"
           onChange={(e) => onChange(e.target.value.toString().trim())}
           id="default-search"
-          className="block outline-none w-full p-4 pl-10 text-gray-900 rounded-lg bg-gray-50 border focus:border-blue-500"
+          className="block outline-none w-full p-4 pl-10 text-gray-900 rounded-lg bg-gray-50 border focus:border-green-500"
           placeholder="Search image here..."
           required
           value={value}
@@ -32,7 +32,7 @@ function SearchBar({ value, onSubmit, onChange, ...rest }: SearchBarProps) {
         />
         <button
           type="submit"
-          className="text-white absolute font-medium rounded-lg px-4 py-2 right-2.5 bottom-2 bg-blue-700 hover:bg-blue-800 hover:shadow-md focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+          className="text-white absolute font-medium rounded-lg px-4 py-2 right-2.5 bottom-2 bg-green-700 hover:bg-green-800 hover:shadow-md focus:ring-4 focus:outline-none focus:ring-green-300 ">
           Search
         </button>
       </div>

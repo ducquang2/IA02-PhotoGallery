@@ -15,7 +15,7 @@ const sizes = {
 function Loading(props: LoadingProps) {
   const {
     containerClass,
-    className = " text-blue-500 fill-gray-400",
+    className = " text-green-500 fill-gray-400",
     size = 'lg'
   } = props
   return (
