@@ -1,6 +1,6 @@
 # IA02 - Photo Gallery
 
-This project is a simple photo gallery using [unsplash API]()
+This project is a simple photo gallery using [unsplash API](https://unsplash.com/)
 This project is part of the Advanced Web Programming course - VNUHCMUS - 2024.
 
 ## Student Infomation
@@ -16,4 +16,4 @@ This project is part of the Advanced Web Programming course - VNUHCMUS - 2024.
 
 ## Deployment
 
-- The project is deployed on [Vercel]()
+- The project is deployed on [Vercel](ia-02-photo-gallery.vercel.app)
