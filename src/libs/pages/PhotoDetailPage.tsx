@@ -11,7 +11,6 @@ function PhotoDetail() {
   const [photo, setPhoto] = useState<PhotoType>()
   const [isLoading, setIsLoading] = useState(false);
 
-
   useEffect(() => {
     setIsLoading(true)
 
@@ -21,10 +20,10 @@ function PhotoDetail() {
           photoId: id
         });
 
-        const responePhoto = response.results as PhotoType
+
+        const responePhoto = response as PhotoType
 
         setIsLoading(false);
-
         setPhoto(responePhoto);
       }
     }
@@ -32,30 +31,33 @@ function PhotoDetail() {
     getPhotoDetail()
   }, [id])
 
-
-  if (!photo) {
-    return <h2>Photo not found</h2>;
-  }
-
   return (
     <>
-      <div className="mb-4">
-        <Link to="/photos">
-          <button className="bg-green-500 text-white px-4 py-2 rounded">
-            Go back to Photos
-          </button>
-        </Link>
-      </div>
-      {isLoading ? (
-        <Loading containerClass="flex justify-center items-center" size="lg" />
+      <Link to="/photos">
+        <button className="bg-green-500 text-white px-4 py-2 rounded">
+          Go back to Photos
+        </button>
+      </Link>
+      {!photo ? (
+        <h2>Photo not found</h2>
       ) : (
-        <div>
-          <h1 className="text-2xl font-bold mb-4">{photo.description}</h1>
-          <img src={photo.links.html} alt={photo.alt_description} className="mb-4" />
-          <p>{photo.description}</p>
-          <Link to="/photos" className="text-blue-500">Back to Photos</Link>
-        </div>
+        <>
+          {isLoading ? (
+            <Loading containerClass="flex justify-center items-center" size="lg" />
+          ) : (
+            <div>
+              <h1 className="text-2xl font-bold mb-4">{photo.description}</h1>
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src={photo.urls.regular}
+                alt={photo.alt_description}
+              />
+              <p>{photo.description}</p>
+            </div>
+          )}
+        </>
       )}
+
     </>
   );
 };
