@@ -9,4 +9,11 @@ export type PhotoType = {
     regular: string;
     small: string;
   };
+  user: {
+    first_name: string;
+    last_name: string;
+    profile_image: {
+      medium: string;
+    };
+  };
 };

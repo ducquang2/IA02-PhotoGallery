@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { getPhoto } from '../api/photo';
-import { Loading } from '../components';
+import { Avatar, Loading } from '../components';
 import { PhotoType } from '../utils/types';
 
 function PhotoDetail() {
@@ -21,6 +21,9 @@ function PhotoDetail() {
         });
 
         const responePhoto = response as PhotoType
+
+        console.log(responePhoto);
+
 
         setIsLoading(false);
         setPhoto(responePhoto);
@@ -44,14 +47,21 @@ function PhotoDetail() {
           {!photo ? (
             <h2>Photo not found</h2>
           ) : (
-            <div>
+            <div className="w-full h-full flex flex-col items-center justify-center">
               <h1 className="text-2xl font-bold mb-4">{photo.description}</h1>
               <img
-                className="h-auto max-w-full rounded-lg"
+                className="h-96 rounded-lg"
                 src={photo.urls.regular}
                 alt={photo.alt_description}
               />
               <p>{photo.description}</p>
+              <div className="flex gap-4 text-lg">
+                Upload by:
+                <Avatar image={photo.user.profile_image.medium} alt={`${photo.user.last_name} ${photo.user.first_name}`}>
+                  <p>{photo.user.last_name} {photo.user.first_name}</p>
+                </Avatar>
+              </div>
+
             </div>
           )}
         </>

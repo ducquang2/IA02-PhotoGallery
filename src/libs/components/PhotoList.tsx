@@ -3,6 +3,7 @@ import { splitToSmallChunks } from "../utils/helpers";
 import { PhotoType } from "../utils/types";
 
 export { PhotoList };
+
 type PhotoListProps = {
   images: Array<PhotoType>;
 }
