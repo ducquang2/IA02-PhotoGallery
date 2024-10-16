@@ -38,12 +38,11 @@ type getPhotoParams = {
  * @returns - The photo data from Unsplash.
  */
 export async function getPhoto({ photoId }: getPhotoParams) {
-  const res = await fetch(`${baseUrl}/search/photos/${photoId}`, {
+  const res = await fetch(`${baseUrl}/photos/${photoId}/?`, {
     method: "GET",
     headers: {
       Authorization: `Client-ID ${import.meta.env.VITE_UNSPLASH_API_KEY}`,
     },
   });
-
   return res.json();
 }
