@@ -20,7 +20,6 @@ function PhotoDetail() {
           photoId: id
         });
 
-
         const responePhoto = response as PhotoType
 
         setIsLoading(false);
@@ -38,12 +37,12 @@ function PhotoDetail() {
           Go back to Photos
         </button>
       </Link>
-      {!photo ? (
-        <h2>Photo not found</h2>
+      {isLoading ? (
+        <Loading containerClass="flex justify-center items-center" size="lg" />
       ) : (
         <>
-          {isLoading ? (
-            <Loading containerClass="flex justify-center items-center" size="lg" />
+          {!photo ? (
+            <h2>Photo not found</h2>
           ) : (
             <div>
               <h1 className="text-2xl font-bold mb-4">{photo.description}</h1>
@@ -57,7 +56,6 @@ function PhotoDetail() {
           )}
         </>
       )}
-
     </>
   );
 };
