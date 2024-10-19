@@ -5,7 +5,7 @@ import { getPhoto } from '../api/photo';
 import { Avatar, Loading } from '../components';
 import { PhotoType } from '../utils/types';
 
-function PhotoDetail() {
+function PhotoDetailPage() {
   const { id } = useParams();
 
   const [photo, setPhoto] = useState<PhotoType>()
@@ -70,4 +70,7 @@ function PhotoDetail() {
   );
 };
 
-export default PhotoDetail;
+export default {
+  path: '/photos/:id',
+  page: PhotoDetailPage
+}

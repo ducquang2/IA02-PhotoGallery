@@ -1,26 +1,29 @@
-import { Link, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import PhotoDetailPage from './libs/pages/PhotoDetailPage';
-import PhotoListPage from './libs/pages/PhotoListPage';
+import pagesAvailable from './libs/pages';
+import ErrorPage from './libs/pages/ErrorPage';
 
 function Main() {
-  const location = useLocation();
-
   return (
     <div className="container mx-auto p-4">
-      {(location.pathname !== '/photos' && !location.pathname.startsWith('/photos/')) && (
-        <div className="mb-4">
-          <Link to="/photos">
-            <button className="bg-green-500 text-white px-4 py-2 rounded">
-              Go to Photos
-            </button>
-          </Link>
-        </div>
-      )}
-
       <Routes>
-        <Route path="/photos" element={<PhotoListPage />} />
-        <Route path="/photos/:id" element={<PhotoDetailPage />} />
+        {pagesAvailable.map((item, idx: number) => (
+          <Route
+            key={`${idx}_${item.path}`}
+            path={item.path}
+            element={
+              <item.page />
+            }
+          />
+        ))}
+
+        <Route
+          path="/"
+          element={
+            <Navigate replace to={pagesAvailable.length > 0 ? pagesAvailable[0].path : '/error'} />
+          }
+        />
+        <Route path="*" element={<ErrorPage status={404} message="Page not found." />} />
       </Routes>
     </div>
   );
@@ -28,9 +31,9 @@ function Main() {
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Main />
-    </Router>
+    </BrowserRouter>
   );
 }
 

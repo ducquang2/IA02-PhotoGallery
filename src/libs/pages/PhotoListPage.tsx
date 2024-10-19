@@ -109,4 +109,7 @@ function PhotoListPage() {
   )
 }
 
-export default PhotoListPage;
+export default {
+  path: '/photos',
+  page: PhotoListPage
+}
