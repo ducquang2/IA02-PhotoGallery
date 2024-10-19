@@ -16,7 +16,7 @@ function ErrorPage(props: ErrorPageProps) {
         <p className="h-3 mb-0">{message}</p>
       </div>
 
-      <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => navigate('/photos')}>
+      <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => navigate('/')}>
         Back to home
       </button>
     </div>

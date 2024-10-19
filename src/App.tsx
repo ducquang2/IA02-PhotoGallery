@@ -20,7 +20,7 @@ function Main() {
         <Route
           path="/"
           element={
-            <Navigate replace to={pagesAvailable.length > 0 ? pagesAvailable[0].path : '/error'} />
+            <Navigate replace to={pagesAvailable.length > 0 ? '/photos' : '/error'} />
           }
         />
         <Route path="*" element={<ErrorPage status={404} message="Page not found." />} />
